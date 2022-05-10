@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>UTS WEB SERVICE Semester 6</title>
+
+        <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        
+        <script type="text/javascript">
+            $.getJSON("http://localhost/utswebser/access_html.php", function(result){
+                $.each(result, function(i)
+                {
+                document.getElementById("rowDataKatalog").innerHTML 
+                +="<tr><td>" + result[i].id_produk +"</td><td>" 
+                    + result[i].nama_produk +"</td><td>" 
+                        + result[i].uk_display +"</td><td>" 
+                            + result[i].ram +"</td><td>"
+                                + result[i].warna +"</td><td>"
+                                    + result[i].deskripsi +"</td><td>"
+                                        + result[i].berat +"</td><td>"
+                                            + result[i].harga +"</td><td>"
+                                                +  result[i].stock + "</td></tr>";
+                });
+            });
+        </script>
+
+        <style>
+            .table-condensed{
+            font-size: 12.5px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="container">
+
+			<br>
+			<h3 align="center">UTS WEB SERVICE Semester Genap 2021 - 2022</h3>
+			<h4 align="center">WEB SERVICE REQUESTOR</h4>
+			<h5 align="center">Dosen Pengampu : JEFRI ALFA RAZAQ, M.Kom</h5>
+			<h5 align="center">Idzaa Piliawan Pribadi / 19.01.53.0137 / B2</h5>
+			<br />
+
+            <h5><b>Data Produk</b></h5>
+			<div class="table-responsive"> 
+				<table class="table table-condensed table-dark table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Nama Produk</th>
+                            <th>Ukuran Display</th>
+                            <th>RAM</th>
+                            <th>Warna</th>
+                            <th>Deskripsi Produk</th>
+                            <th>Berat</th>
+                            <th>Harga</th>
+                            <th>Stock</th>
+						</tr>
+					</thead>
+					<tbody id="rowDataKatalog">
+                    </tbody>
+				</table>
+            </div>
+        </div>
+    </body>
+</html>
